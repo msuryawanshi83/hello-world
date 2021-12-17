@@ -31,7 +31,8 @@ jobs:
           echo $JAVA_HOME
           pwd
           ls -l
-      
+          python3 uploadreport.py results.sarif CONNECTOR2 banditscan 6518e767-7f21-48e2-b73b-da66da8370e2
+
       # Upload the SARIF file generated in the previous step
       # - name: Upload SARIF results file
       #   uses: github/codeql-action/upload-sarif@main
