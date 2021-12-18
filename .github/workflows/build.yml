@@ -19,8 +19,8 @@ jobs:
       - name: Run Codacy Analysis CLI
         uses: codacy/codacy-analysis-cli-action@master
         with:
-          output: results.sarif
-          format: sarif
+          output: results.json
+          format: json
           # Adjust severity of non-security issues
           gh-code-scanning-compat: true
           # Force 0 exit code to allow SARIF file generation
@@ -31,7 +31,7 @@ jobs:
           echo $JAVA_HOME
           pwd
           ls -l
-          python3 uploadreport.py results.sarif CONNECTOR2 banditscan 6518e767-7f21-48e2-b73b-da66da8370e2
+          python3 uploadreport.py results.json CONNECTOR2 banditscan 6518e767-7f21-48e2-b73b-da66da8370e2
 
       # Upload the SARIF file generated in the previous step
       # - name: Upload SARIF results file
