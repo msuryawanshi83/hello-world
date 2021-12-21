@@ -33,6 +33,12 @@ jobs:
           ls -l
           cat results.json
           python3 uploadreport.py results.json CONNECTOR2 banditscan 6518e767-7f21-48e2-b73b-da66da8370e2
+      - name: Example workflow for Node using Snyk
+        steps:
+          - name: Run Snyk to check for vulnerabilities
+            uses: snyk/actions/node@master
+            env:
+              SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}    
 
       # Upload the SARIF file generated in the previous step
       # - name: Upload SARIF results file
