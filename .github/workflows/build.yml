@@ -16,23 +16,23 @@ jobs:
       #     # or
       #     api-token: ${{ secrets.CODACY_API_TOKEN }}
       #     coverage-reports: ./coverage/lcov.info 
-      - name: Run Codacy Analysis CLI
-        uses: codacy/codacy-analysis-cli-action@master
-        with:
-          output: results.json
-          format: json
-          # Adjust severity of non-security issues
-          gh-code-scanning-compat: true
-          # Force 0 exit code to allow SARIF file generation
-          # This will handover control about PR rejection to the GitHub side
-          max-allowed-issues: 2147483647
-      - name: Get Current Path
-        run: |
-          echo $JAVA_HOME
-          pwd
-          ls -l
-          cat results.json
-          python3 uploadreport.py results.json CONNECTOR2 banditscan 6518e767-7f21-48e2-b73b-da66da8370e2
+      # - name: Run Codacy Analysis CLI
+      #   uses: codacy/codacy-analysis-cli-action@master
+      #   with:
+      #     output: results.json
+      #     format: json
+      #     # Adjust severity of non-security issues
+      #     gh-code-scanning-compat: true
+      #     # Force 0 exit code to allow SARIF file generation
+      #     # This will handover control about PR rejection to the GitHub side
+      #     max-allowed-issues: 2147483647
+      # - name: Get Current Path
+      #   run: |
+      #     echo $JAVA_HOME
+      #     pwd
+      #     ls -l
+      #     cat results.json
+      #     python3 uploadreport.py results.json CONNECTOR2 banditscan 6518e767-7f21-48e2-b73b-da66da8370e2
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         env:
