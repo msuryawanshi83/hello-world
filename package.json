@@ -28,7 +28,6 @@
     "git-secrets": "0.0.11"
   },
   "pre-commit": [
-    "gitsecret",
-    "lint1"
+    "gitsecret"
   ]
 }
