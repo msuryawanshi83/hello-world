@@ -2,7 +2,8 @@ name: codacy-coverage-reporter
 
 on:
   repository_dispatch:
-    types: [run-ping]
+    types: 
+      - run-ping
 jobs:
   codacy-coverage-reporter:
     runs-on: ubuntu-latest
